@@ -5,6 +5,7 @@ import 'package:socialcommerce/screens/home/home_screen.dart';
 import 'package:socialcommerce/screens/post/post_screen.dart';
 import 'package:socialcommerce/screens/profile/profile_screen.dart';
 import 'package:socialcommerce/screens/reels/reels_screen.dart';
+import 'package:socialcommerce/utils/constants.dart';
 
 class MainNavBar extends StatefulWidget {
   const MainNavBar({super.key});
@@ -32,6 +33,11 @@ class _MainNavBarState extends State<MainNavBar> {
         currentIndex: _currentIndex,
         onTap: (i) => setState(() => _currentIndex = i),
         type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        selectedItemColor: AppColors.primary,
+        unselectedItemColor: AppColors.textSecondary,
+        selectedLabelStyle: AppTextStyles.subtitle.copyWith(color: AppColors.primary),
+        unselectedLabelStyle: AppTextStyles.subtitle,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: FaIcon(FontAwesomeIcons.film), label: 'Reels'),
