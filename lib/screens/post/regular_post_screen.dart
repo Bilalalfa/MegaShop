@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProductPostScreen extends StatelessWidget {
-  const ProductPostScreen({super.key});
+class RegularPostScreen extends StatelessWidget {
+  const RegularPostScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class ProductPostScreen extends StatelessWidget {
         children: [
           _uploadBox(),
           const SizedBox(height: 18),
-          _productForm(),
+          _captionBox(),
           const SizedBox(height: 18),
           _postButton(),
         ],
@@ -21,7 +21,7 @@ class ProductPostScreen extends StatelessWidget {
 
   Widget _uploadBox() {
     return _card(
-      height: 280,
+      height: 300,
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(color: const Color(0xFFCBD5E1), width: 1.5),
@@ -33,7 +33,7 @@ class ProductPostScreen extends StatelessWidget {
             _UploadIcon(),
             SizedBox(height: 18),
             Text(
-              'Upload Product Image',
+              'Upload Image or Video',
               style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
@@ -44,52 +44,14 @@ class ProductPostScreen extends StatelessWidget {
     );
   }
 
-  Widget _productForm() {
+  Widget _captionBox() {
     return _card(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _label('Product Name'),
-          _input('Enter product name'),
-          const SizedBox(height: 18),
-          _label('Price'),
-          _input('\$ 0.00', keyboardType: TextInputType.number),
-          const SizedBox(height: 18),
-          _label('Description'),
-          _input('Describe your product...', maxLines: 3),
-        ],
-      ),
-    );
-  }
-
-  Widget _label(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontWeight: FontWeight.w600,
-          color: Color(0xFF374151),
-        ),
-      ),
-    );
-  }
-
-  Widget _input(
-      String hint, {
-        TextInputType keyboardType = TextInputType.text,
-        int maxLines = 1,
-      }) {
-    return TextField(
-      keyboardType: keyboardType,
-      maxLines: maxLines,
-      decoration: InputDecoration(
-        hintText: hint,
-        filled: true,
-        fillColor: const Color(0xFFF3F4F6),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide.none,
+      height: 140,
+      child: const TextField(
+        maxLines: null,
+        decoration: InputDecoration(
+          hintText: 'Write a caption...',
+          border: InputBorder.none,
         ),
       ),
     );
@@ -112,7 +74,7 @@ class ProductPostScreen extends StatelessWidget {
           shadowColor: Colors.transparent,
         ),
         child: const Text(
-          'Post Product',
+          'Post',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
